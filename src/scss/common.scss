@@ -1,0 +1,341 @@
+//!======================================================================================================
+.page {
+	position: relative;
+
+	&__slider {
+		height: 100vh;
+		height: calc(var(--vh, 1vh) * 100);
+	}
+	// .page__slide
+
+	&__slide {
+		overflow: hidden;
+		height: 100%;
+	}
+
+	&__wrapper {
+		transition: 0.2s;
+		@media (max-width: em(930)) {
+			.menu-open & {
+				transform: translateX(-100%);
+			}
+		}
+	}
+
+	&__wrapper--contacts {
+		@media (max-height: em(550)) {
+			padding: rem(100) 0px 0 0px;
+		}
+	}
+}
+
+//!======================================================================================================
+
+.circle {
+	background: url("@img/circle.png") center / contain no-repeat;
+	position: fixed;
+	left: -10vw;
+	top: -3vh;
+	width: 120vw;
+	height: 120vh;
+	z-index: -1;
+	transform: scale(0);
+
+	@media (max-width: em(600)) {
+		left: -15vw;
+		top: -15vh;
+		width: 130vw;
+		height: 130vh;
+	}
+}
+
+//!======================================================================================================
+
+.text-circle {
+	transform: scale(1);
+	position: absolute;
+	top: calc(50% + em(2.5, 130));
+	left: calc(50% + em(22, 130));
+	display: inline-block;
+	@include adaptiveValue("width", 17, 5);
+	@include adaptiveValue("height", 17, 5);
+	background-color: #fff;
+	border-radius: 50%;
+
+	@media (max-height: em(690)) {
+		width: rem(14);
+		height: rem(14);
+	}
+
+	@media (max-height: em(690)) and (max-width: em(680)) {
+		width: rem(6);
+		height: rem(6);
+	}
+
+	@media (max-height: em(650)) and (max-width: em(1210)) {
+		width: rem(6);
+		height: rem(6);
+	}
+
+	@media (max-width: em(370)) {
+		left: calc(50% + em(22, 130));
+	}
+
+	@media (max-height: em(540)) {
+		width: rem(6);
+		height: rem(6);
+	}
+
+	@media (max-height: em(525)) and (max-width: em(500)) {
+		width: rem(5);
+		height: rem(5);
+		left: calc(50% + em(25, 130));
+	}
+
+	@media (max-height: em(380)) and (max-width: em(500)) {
+		width: rem(4);
+		height: rem(4);
+	}
+
+	@media (max-width: em(360)) {
+		width: rem(5);
+		height: rem(5);
+	}
+}
+
+//!======================================================================================================
+
+.vh-wrapper {
+	position: relative;
+	height: 100vh;
+	height: calc(var(--vh, 1vh) * 100);
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-end;
+	padding: 0px 0px rem(100) 0px;
+}
+
+.vh-wrapper--managment {
+	@media (max-width: em(600)) {
+		height: auto;
+		padding: 50vh 0px 0px 0px;
+	}
+
+	.panel__main-text {
+		@media (max-width: em(380)) {
+			font-size: rem(40);
+		}
+	}
+
+	.panel__person-title {
+		@media (max-width: em(380)) {
+			font-size: rem(25);
+		}
+	}
+
+	.panel__main-text,
+	.panel__person-title {
+		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+	}
+}
+//!======================================================================================================
+
+.img-wrapper {
+	height: rem(26);
+	width: 103%;
+	background: url("@img/logo.svg") center / 100% no-repeat;
+}
+
+//!======================================================================================================
+
+.main-text {
+	@include adaptiveValue("font-size", 130, 50, $maxWidth, 390, 1);
+	line-height: math.div(130, 130);
+	font-weight: 800;
+	@media (max-height: em(880)) and (min-width: em(1201)) {
+		font-size: rem(95);
+	}
+
+	@media (max-height: em(690)) {
+		font-size: rem(80);
+	}
+
+	@media (max-height: em(690)) and (max-width: em(680)) {
+		font-size: rem(50);
+		margin: 0px 0px rem(70) 0px;
+	}
+
+	@media (max-height: em(650)) and (max-width: em(1210)) {
+		font-size: rem(50);
+		margin: 0px 0px rem(60) 0px;
+	}
+
+	@media (max-height: em(540)) {
+		font-size: rem(50);
+		margin: 0px 0px rem(60) 0px;
+	}
+
+	@media (max-width: em(370)) {
+		font-size: rem(40);
+	}
+
+	@media (max-height: em(525)) and (max-width: em(500)) {
+		font-size: rem(40);
+	}
+
+	@media (max-height: em(380)) and (max-width: em(500)) {
+		font-size: rem(30);
+	}
+}
+
+.main-text--annie {
+	margin: rem(20) 0px 0px 0px;
+
+	.vh-wrapper--managment {
+		height: 75vh;
+		padding: 0;
+	}
+	img {
+		transform: scale(1) !important;
+		opacity: 1 !important;
+		animation: none !important;
+	}
+
+	.text-wrapper {
+		@include adaptiveValue("height", 550, 350, $maxWidth, 370, 1);
+	}
+	.panel__main-text {
+		@media (max-width: em(380)) {
+			br {
+				&:first-child {
+					display: none;
+				}
+			}
+		}
+	}
+
+	@media (max-width: em(950)) {
+		.text-wrapper {
+			height: auto;
+		}
+	}
+
+	@media (max-width: em(690)) {
+		.vh-wrapper--managment {
+			height: rem(550);
+		}
+	}
+
+	@media (max-width: em(500)) {
+		.panel__person-img-block {
+			margin: 0px 0px rem(30) 0px;
+		}
+		.vh-wrapper--managment {
+			height: rem(420);
+		}
+	}
+
+	@media (max-width: em(390)) {
+		.vh-wrapper--managment {
+			height: rem(320);
+		}
+	}
+}
+
+.text-wrapper {
+	@include adaptiveValue("height", 450, 350, $maxWidth, 370, 1);
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+
+	@media (max-width: em(950)) {
+		height: auto;
+	}
+
+	@media (max-height: em(880)) and (min-width: em(1201)) {
+		height: rem(467);
+	}
+
+	@media (max-height: em(690)) and (max-width: em(680)) {
+		height: rem(268);
+	}
+	@media (max-height: em(650)) and (max-width: em(1210)) {
+		height: rem(268);
+	}
+
+	@media (max-height: em(540)) and (min-width: em(601)) {
+		height: rem(235);
+	}
+
+	@media (max-height: em(690)) {
+		height: rem(330);
+	}
+
+	@media (max-width: em(600)) {
+		height: auto !important;
+	}
+}
+
+.thin-text {
+	@include adaptiveValue("font-size", 80, 25, $maxWidth, 390, 1);
+	@media (max-height: em(880)) and (min-width: em(1201)) {
+		font-size: rem(55);
+	}
+
+	@media (max-height: em(690)) {
+		font-size: rem(50);
+	}
+
+	@media (max-height: em(690)) and (max-width: em(680)) {
+		font-size: rem(28);
+	}
+
+	@media (max-height: em(650)) and (max-width: em(1210)) {
+		font-size: rem(28);
+	}
+
+	@media (max-height: em(540)) {
+		font-size: rem(35);
+	}
+
+	@media (max-width: em(370)) {
+		font-size: rem(25);
+	}
+
+	@media (max-height: em(525)) and (max-width: em(500)) {
+		font-size: rem(25);
+	}
+
+	@media (max-height: em(380)) and (max-width: em(500)) {
+		font-size: rem(18);
+	}
+	p {
+		font-weight: 300;
+		line-height: math.div(90, 80);
+	}
+}
+
+//!======================================================================================================
+
+@keyframes img {
+	0% {
+		transform: scale(1);
+		opacity: 0;
+	}
+	100% {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+@keyframes imgWrapper {
+	0% {
+		transform: scale(1);
+	}
+	100% {
+		transform: scale(1);
+		border: 0 solid #0d2f90;
+	}
+}
